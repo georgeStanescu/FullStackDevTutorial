@@ -205,9 +205,20 @@
     <Compile Include="Migrations\201610211052113_InitialModel.Designer.cs">
       <DependentUpon>201610211052113_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610211104058_CreateGigTable.cs" />
+    <Compile Include="Migrations\201610211104058_CreateGigTable.Designer.cs">
+      <DependentUpon>201610211104058_CreateGigTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610211130238_OverrideConventions.cs" />
+    <Compile Include="Migrations\201610211130238_OverrideConventions.Designer.cs">
+      <DependentUpon>201610211130238_OverrideConventions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Gig.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -287,6 +298,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610211052113_InitialModel.resx">
       <DependentUpon>201610211052113_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610211104058_CreateGigTable.resx">
+      <DependentUpon>201610211104058_CreateGigTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610211130238_OverrideConventions.resx">
+      <DependentUpon>201610211130238_OverrideConventions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
