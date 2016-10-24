@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201610211325474_AddFKPropertiesToGig.Designer.cs">
       <DependentUpon>201610211325474_AddFKPropertiesToGig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610240925183_AddNameToAppUser.cs" />
+    <Compile Include="Migrations\201610240925183_AddNameToAppUser.Designer.cs">
+      <DependentUpon>201610240925183_AddNameToAppUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -231,6 +235,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\FutureDate.cs" />
     <Compile Include="ViewModels\GigFormViewModel.cs" />
     <Compile Include="ViewModels\ValidTime.cs" />
@@ -323,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610211325474_AddFKPropertiesToGig.resx">
       <DependentUpon>201610211325474_AddFKPropertiesToGig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610240925183_AddNameToAppUser.resx">
+      <DependentUpon>201610240925183_AddNameToAppUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
