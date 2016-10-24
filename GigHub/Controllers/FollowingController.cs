@@ -21,21 +21,21 @@ namespace GigHub.Controllers
         {
             var userId = User.Identity.GetUserId();
 
-            var existentAttendance = _context.Followings
-                .Any(f => f.FolloweeId == userId && f.FolloweeId == dto.GigId);
+            var existentFollowing = _context.Followings
+                .Any(f => f.FolloweeId == userId && f.FolloweeId == dto.FolloweeId);
 
-            if (existentAttendance)
+            if (existentFollowing)
             {
                 return BadRequest("Following already exists!");
             }
 
-            var attendance = new Attendance
+            var following = new Following
             {
-                GigId = dto.GigId,
-                AttendeeId = userId
+                FollowerId = userId,
+                FolloweeId = dto.FolloweeId
             };
 
-            _context.Attendances.Add(attendance);
+            _context.Followings.Add(following);
             _context.SaveChanges();
 
             return Ok();
