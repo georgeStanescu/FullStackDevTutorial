@@ -208,8 +208,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AttendanceController.cs" />
-    <Compile Include="Controllers\FollowingController.cs" />
+    <Compile Include="Controllers\Api\GigsController.cs" />
+    <Compile Include="Controllers\Api\AttendanceController.cs" />
+    <Compile Include="Controllers\Api\FollowingController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -250,6 +251,10 @@
     <Compile Include="Migrations\201610241455181_AddFollowings.Designer.cs">
       <DependentUpon>201610241455181_AddFollowings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610251256511_AddIsCanceledToGig.cs" />
+    <Compile Include="Migrations\201610251256511_AddIsCanceledToGig.Designer.cs">
+      <DependentUpon>201610251256511_AddIsCanceledToGig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -277,6 +282,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -369,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610241455181_AddFollowings.resx">
       <DependentUpon>201610241455181_AddFollowings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610251256511_AddIsCanceledToGig.resx">
+      <DependentUpon>201610251256511_AddIsCanceledToGig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
