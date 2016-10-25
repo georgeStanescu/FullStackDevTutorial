@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GigHub.ViewModels
 {
-    public class HomeViewModel
+    public class GigsViewModel
     {
         public bool ShowActions { get; set; }
 
