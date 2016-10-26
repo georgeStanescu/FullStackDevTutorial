@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoMapper;
+using GigHub.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,20 +11,13 @@ using System.Web.Routing;
 
 namespace GigHub
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
-            GlobalConfiguration.Configure(config => 
-            {
-                config.MapHttpAttributeRoutes();
+            Mapper.Initialize(c => c.AddProfile<MappingProfile>());
 
-                config.Routes.MapHttpRoute(
-                    name: "DefaultApi",
-                    routeTemplate: "api/{controller}/{id}",
-                    defaults: new { id = RouteParameter.Optional }
-                );
-            });
+            GlobalConfiguration.Configure(WebApiConfig.Register);
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
