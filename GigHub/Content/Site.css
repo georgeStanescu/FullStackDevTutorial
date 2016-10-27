@@ -177,3 +177,6 @@ h6,
 .popover-notifications ul.notifications > li:last-child {
   border-bottom: none;
 }
+#seachGigs {
+  width: 300px;
+}
