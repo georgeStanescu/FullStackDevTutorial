@@ -41,6 +41,11 @@ span.field-validation-error {
 .v-offset-5 {
   margin-top: 80px;
 }
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('fonts/glyphicons-halflings-regular.eot');
+  src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
 .navbar-inverse {
   background-color: #ff4342;
   border-color: #ff4342;
@@ -132,9 +137,7 @@ h6,
   font-weight: bold;
 }
 .gigs > li .details .genre {
-  font-size: 14px;
-  display: block;
-  margin-bottom: 4px;
+  font-size: 15px;
 }
 .gigs > li .date {
   background: red;
