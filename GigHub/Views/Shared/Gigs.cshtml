@@ -42,23 +42,19 @@
                     {
                         <span class="label label-warning">Canceled</span>
                     }
-
-                    @if (Model.ShowActions)
-                    {
-                        <button class="btn btn-link btn-sm js-toggle-following" data-user-id="@gig.ArtistId">Following?</button>
-                    }
                 </span>
                 <span class="genre">
                     @gig.Genre.Name
-
-                    @if (Model.ShowActions && !gig.IsCanceled)
-                    {
-                        <button data-gig-id="@gig.Id"
-                                class="btn
-                                    @(Model.Attendances.Contains(gig.Id) ? "btn-info" : "btn-default")
-                                btn-sm pull-right js-toggle-attendance">@(Model.Attendances.Contains(gig.Id) ? "Going" : "Going?")</button>
-                    }
                 </span>
+                @if (Model.ShowActions && !gig.IsCanceled)
+                {
+                    <button data-gig-id="@gig.Id"
+                            class="btn
+                                    @(Model.Attendances.Contains(gig.Id) ? "btn-info" : "btn-default")
+                                btn-sm pull-left js-toggle-attendance">
+                        @(Model.Attendances.Contains(gig.Id) ? "Going" : "Going?")
+                            </button>
+                }
             </div>
         </li>
     }
@@ -70,17 +66,7 @@
         $(document).ready(function () {
             GigsController.init("#gigs");
 
-            $(".js-toggle-following").click(function (event) {
-                var button = $(event.target);
-
-                $.post("/api/following", { "followeeId": button.attr("data-user-id") })
-                .done(function () {
-                    button.text("Following");
-                })
-                .fail(function () {
-                    alert("Something failed");
-                });
-            });
+            GigsDetailsController.init();
         });
     </script>
 }

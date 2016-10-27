@@ -278,7 +278,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Attendance.cs" />
-    <Compile Include="Models\FolloweesController.cs" />
+    <Compile Include="Controllers\FolloweesController.cs" />
     <Compile Include="Models\Following.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Gig.cs" />
@@ -317,8 +317,10 @@
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\controllers\gigsDetailsController.js" />
     <Content Include="Scripts\app\controllers\gigsController.js" />
     <Content Include="Scripts\app\services\attendanceService.js" />
+    <Content Include="Scripts\app\services\followingService.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
