@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace GigHub.Repositories
 {
-    public class GigRepository
+    public class GigRepository : IGigRepository
     {
         private ApplicationDbContext _context;
 
@@ -59,7 +59,7 @@ namespace GigHub.Repositories
                 .SingleOrDefault(g => g.Id == gigId);
         }
 
-        internal void Add(Gig gig)
+        public void Add(Gig gig)
         {
             _context.Gigs.Add(gig);
         }
