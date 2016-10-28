@@ -1,12 +1,11 @@
 ﻿using GigHub.Core.Models;
 using GigHub.Core.Repositories;
-using GigHub.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace GigHub.Repositories
+namespace GigHub.Persistence.Repositories
 {
     public class GigRepository : IGigRepository
     {
@@ -15,6 +14,14 @@ namespace GigHub.Repositories
         public GigRepository(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        public IEnumerable<Gig> GetUpcomingGigsWithArtistAndGenre()
+        {
+            return _context.Gigs
+                .Include(g => g.Artist)
+                .Include(g => g.Genre)
+                .Where(g => g.DateTime > DateTime.Now);
         }
 
         public IEnumerable<Gig> GetGigsUserAttending(string userId)

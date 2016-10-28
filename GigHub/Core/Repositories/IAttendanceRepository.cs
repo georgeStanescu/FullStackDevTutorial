@@ -7,5 +7,7 @@ namespace GigHub.Core.Repositories
     {
         Attendance GetAttendance(string attendeeId, int gigId);
         IEnumerable<Attendance> GetFutureAttendances(string userId);
+        void Add(Attendance attendance);
+        void Remove(Attendance attendance);
     }
 }

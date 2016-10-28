@@ -4,7 +4,7 @@ using GigHub.Persistence;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GigHub.Repositories
+namespace GigHub.Persistence.Repositories
 {
     public class GenreRepository : IGenreRepository
     {

@@ -1,12 +1,11 @@
 ﻿using GigHub.Core;
 using GigHub.Core.Repositories;
-using GigHub.Repositories;
+using GigHub.Persistence.Repositories;
 
 namespace GigHub.Persistence
 {
     public class UnitOfWork : IUnitOfWork
     {
-
         private readonly ApplicationDbContext _context;
 
         public IGigRepository Gigs { get; private set; }
@@ -17,6 +16,10 @@ namespace GigHub.Persistence
 
         public IGenreRepository Genres { get; private set; }
 
+        public IUserNotificationRepository UserNotifications { get; private set; }
+
+        public IApplicationUserRepository Users { get; private set; }
+
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -25,6 +28,8 @@ namespace GigHub.Persistence
             Gigs = new GigRepository(_context);
             Followings = new FollowingRepository(_context);
             Genres = new GenreRepository(_context);
+            UserNotifications = new UserNotificationRepository(_context);
+            Users = new ApplicationUserRepository(_context);
         }
 
         public void Complete()

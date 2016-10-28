@@ -1,11 +1,10 @@
 ﻿using GigHub.Core.Models;
 using GigHub.Core.Repositories;
-using GigHub.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GigHub.Repositories
+namespace GigHub.Persistence.Repositories
 {
     public class AttendanceRepository : IAttendanceRepository
     {
@@ -27,6 +26,16 @@ namespace GigHub.Repositories
         {
             return _context.Attendances
                    .SingleOrDefault(a => a.AttendeeId == attendeeId && a.GigId == gigId);
+        }
+
+        public void Add(Attendance attendance)
+        {
+            _context.Attendances.Add(attendance);
+        }
+
+        public void Remove(Attendance attendance)
+        {
+            _context.Attendances.Remove(attendance);
         }
     }
 }

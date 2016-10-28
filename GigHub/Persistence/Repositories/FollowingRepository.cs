@@ -1,9 +1,8 @@
 ﻿using GigHub.Core.Models;
 using GigHub.Core.Repositories;
-using GigHub.Persistence;
 using System.Linq;
 
-namespace GigHub.Repositories
+namespace GigHub.Persistence.Repositories
 {
     public class FollowingRepository : IFollowingRepository
     {
@@ -18,6 +17,16 @@ namespace GigHub.Repositories
         {
             return _context.Followings
                     .SingleOrDefault(f => f.FollowerId == followerId && f.FolloweeId == followeeId);
+        }
+
+        public void Add(Following following)
+        {
+            _context.Followings.Add(following);
+        }
+
+        public void Remove(Following following)
+        {
+            _context.Followings.Remove(following);
         }
     }
 }
