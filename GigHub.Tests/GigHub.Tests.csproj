@@ -106,6 +106,8 @@
     <Compile Include="Domain\Models\GigTests.cs" />
     <Compile Include="Domain\Models\NotificationTests.cs" />
     <Compile Include="Extensions\ApiControllerExtensions.cs" />
+    <Compile Include="Extensions\MockDbExtensions.cs" />
+    <Compile Include="Persistance\Repositories\GigsRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
