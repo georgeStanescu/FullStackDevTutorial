@@ -13,7 +13,9 @@ namespace GigHub.Core.Models
                 throw new ArgumentNullException(nameof(notification));
 
             Notification = notification;
+            NotificationId = notification.Id;
             User = user;
+            UserId = user.Id;
         }
 
         //declared only for EF

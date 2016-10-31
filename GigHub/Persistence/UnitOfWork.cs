@@ -18,6 +18,8 @@ namespace GigHub.Persistence
 
         public IUserNotificationRepository UserNotifications { get; private set; }
 
+        public INotificationRepository Notifications { get; private set; }
+
         public IApplicationUserRepository Users { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
@@ -30,6 +32,7 @@ namespace GigHub.Persistence
             Genres = new GenreRepository(_context);
             UserNotifications = new UserNotificationRepository(_context);
             Users = new ApplicationUserRepository(_context);
+            Notifications = new NotificationRepository(_context);
         }
 
         public void Complete()

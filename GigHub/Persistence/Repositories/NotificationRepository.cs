@@ -6,19 +6,21 @@ using System.Linq;
 
 namespace GigHub.Persistence.Repositories
 {
-    public class UserNotificationRepository : IUserNotificationRepository
+    public class NotificationRepository : INotificationRepository
     {
-        private IApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
-        public UserNotificationRepository(IApplicationDbContext context)
+        public NotificationRepository(IApplicationDbContext context)
         {
             _context = context;
         }
 
-        public IEnumerable<UserNotification> GetUnreadUserNotifications(string userId)
+        public IEnumerable<Notification> GetUnreadNotificationsWithArtist(string userId)
         {
             return _context.UserNotifications
                 .Where(un => un.UserId == userId && !un.IsRead)
+                .Select(un => un.Notification)
+                .Include(n => n.Gig.Artist)
                 .ToList();
         }
     }

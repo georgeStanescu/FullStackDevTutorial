@@ -21,7 +21,7 @@ namespace GigHub.Controllers.Api
 
         public IEnumerable<NotificationDto> GetNewNotifications()
         {
-            var notifications = _unitOfWork.UserNotifications
+            var notifications = _unitOfWork.Notifications
                 .GetUnreadNotificationsWithArtist(User.Identity.GetUserId());
 
             return notifications.Select(Mapper.Map<Notification, NotificationDto>);
