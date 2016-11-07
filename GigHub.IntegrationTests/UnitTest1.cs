@@ -1,9 +1,9 @@
-﻿using NUnit.Framework;
-using System;
+﻿
+using NUnit.Framework;
 
 namespace GigHub.IntegrationTests
 {
-    [TextFixture]
+    [TestFixture]
     public class UnitTest1
     {
         [Test]
