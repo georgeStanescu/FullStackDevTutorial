@@ -7,6 +7,7 @@ using System.Linq;
 using GigHub.Core.Models;
 using System.Collections.Generic;
 using FluentAssertions;
+using GigHub.Core.ViewModels;
 
 namespace GigHub.IntegrationTests.Controllers
 {
@@ -55,6 +56,45 @@ namespace GigHub.IntegrationTests.Controllers
 
             //Assert
             (result.ViewData.Model as IEnumerable<Gig>).Should().HaveCount(1);
+        }
+
+        [Test, Isolated]
+        public void Update_WhenCalled_ShouldUpdateTheGivenGigs()
+        {
+            //Arrange
+            var user = _context.Users.First();
+            var genre = _context.Genres.Single(g => g.Id == 1);
+
+            _controller.MockCurrentUser(user.Id, user.UserName);
+
+            var gig = new Gig
+            {
+                Artist = user,
+                DateTime = DateTime.Now.AddDays(1),
+                Genre = genre,
+                Venue = "-"
+            };
+
+            _context.Gigs.Add(gig);
+
+            _context.SaveChanges();
+
+            //Act
+            var result = _controller.Update(new GigFormViewModel
+            {
+                Id = gig.Id,
+                Date = DateTime.Today.AddMonths(1).ToString("d MMM yyyy"),
+                Time = "20:00",
+                Venue = "Venue",
+                Genre = 2
+            });
+
+            //Assert
+            _context.Entry(gig).Reload();
+
+            gig.DateTime.Should().Be(DateTime.Today.AddMonths(1).AddHours(20));
+            gig.Venue.Should().Be("Venue");
+            gig.GenreId.Should().Be(2);
         }
     }
 }
